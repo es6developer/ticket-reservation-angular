@@ -1,0 +1,61 @@
+.glyphicon-lg {
+  font-size: 4em
+}
+
+.info-block {
+  border-right: 5px solid #E6E6E6;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.info-block .square-box {
+  width: 100px;
+  min-height: 110px;
+  margin-right: 22px;
+  text-align: center !important;
+  background-color: #676767;
+  padding: 20px 0
+}
+
+.info-block.block-info {
+  border-color: #d91e3d;
+}
+
+.info-block.block-info .square-box {
+  border-radius: 10px;
+  background-color: #d91e3d;
+  color: #FFF;
+}
+
+.pd-2 {
+  padding: 6px 16px;
+}
+
+#train_list {
+  margin-top: 10%;
+}
+
+.items.col-xs-12.col-sm-6.col-md-6.col-lg-6.clearfix.pd-2:hover {
+  background: #e9edf0;
+  border-radius: 13px;
+}
+
+.items p {
+  margin-bottom: 6px !important;
+}
+
+.btn-daily {
+  padding: 2px;
+  font-size: 12px;
+  margin-right: 10px;
+  width: 14%;
+}
+
+.main-train-list {
+  padding-top: 6%;
+}
+
+.filter-box {
+  justify-content: center;
+  margin-top: 2em;
+}

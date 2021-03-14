@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/themes/dark.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+.primary-bg {
+  background-color: #d91e3d !important;
+  color: #fff !important;
+}
+
+.primary-text {
+  color: #d91e3d;
+}
+
+body {
+  margin: 0 !important;
+  background-color: #ebc2c929;
+  overflow-x: hidden;
+}
+
+.bs-datepicker-body table td.week span {
+  color: #d91e3d !important;
+}
+
+.bs-datepicker-body table td span.selected,
+.bs-datepicker-head,
+.bs-datepicker-head,
+.bs-datepicker button:active,
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span[class*="select-"]:after,
+.bs-datepicker-body table td[class*="select-"] span:after,
+.bs-datepicker-body table td.active-week span:hover {
+  background-color: #d91e3d !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.time-ago {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}

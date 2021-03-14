@@ -1,0 +1,58 @@
+<section class="login-block">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4 login-sec">
+            <h2 class="text-center">Register Now</h2>
+            <form class="login-form" [formGroup]="registerForm">
+               <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-uppercase">User name</label>
+                  <input type="text" class="form-control" placeholder="" formControlName="name">
+               </div>
+               <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-uppercase">Mobile Number</label>
+                  <input type="number" class="form-control" placeholder="" formControlName="mobile_number">
+               </div>
+               <div class="form-group">
+                  <label for="exampleInputEmail1" class="text-uppercase">Gender</label>
+                  <select name="gender" class="form-control" formControlName="gender">
+                     <option selected>Select...</option>
+                     <option value="Male">Male</option>
+                     <option value="Female">Female</option>
+                  </select>
+               </div>
+
+               <div class="form-group">
+                  <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                  <input type="password" class="form-control" placeholder="" formControlName="password">
+               </div>
+               <div class="form-group">
+                  <small>Already has account?<a routerLink="/auth/login"> Login</a></small>
+                  <button type="submit" (click)="registerUser()"
+                     class="btn btn-login float-right btn-sm">Register</button>
+               </div>
+            </form>
+
+         </div>
+         <div class="col-md-8 banner-sec">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
+               style="height: 100% !important;">
+
+               <div class="carousel-inner" role="listbox" style="height: 100% !important;">
+                  <div class="carousel-item active" style="height: 100% !important;">
+                     <img class="d-block img-fluid" src="assets/images/train1.jpg" alt="First slide"
+                        style="height: 100% !important;">
+                     <div class="carousel-caption d-none d-md-block">
+                        <div class="banner-text">
+                           <h2>Train Ticket Reservation</h2>
+                           <p>The trains always arrive at your station. The question is which one to take?
+
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

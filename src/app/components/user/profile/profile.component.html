@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="main-profile">
+    <div class="bg-white">
+
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center py-4">
+          <div>
+            <span href="#" class="d-inline-block text-dark">
+              <strong>User Profile</strong>
+            </span>
+
+          </div>
+        </div>
+      </div>
+      <hr class="m-0">
+
+      <div class="container">
+        <div class="text-center py-1">
+          <img src="https://uxwing.com/wp-content/themes/uxwing/download/12-people-gesture/user-profile.png" alt
+            class="ui-w-100 rounded-circle">
+
+          <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
+            <h4 class="font-weight-bold my-4">{{userDetails.name}}</h4>
+
+            <div class="text-muted mb-4">
+              <i class="fa fa-phone"></i> : {{userDetails.mobile_number}} , <i class="fa fa-user">:
+                {{userDetails.gender}}</i>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <a href="#" class="btn icon-btn borderless btn-outline-twitter btn-lg btn-round">
+              <span class="ion ion-logo-twitter"></span>
+            </a>
+            <a href="#" class="btn icon-btn borderless btn-outline-facebook btn-lg btn-round">
+              <span class="ion ion-logo-facebook"></span>
+            </a>
+            <a href="#" class="btn icon-btn borderless btn-outline-instagram btn-lg btn-round">
+              <span class="ion ion-logo-instagram"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr class="m-0">
+      <ul class="nav nav-tabs tabs-alt justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link py-4 " (click)="selectedType = 'booked'"
+            [ngClass]="{'active':selectedType == 'booked'}">Booked Tickets ({{tickets.booked.length}})</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link py-4" (click)="selectedType = 'cancelled'"
+            [ngClass]="{'active':selectedType == 'cancelled'}">Cancelled Tickets ({{tickets.cancelled.length}})</a>
+        </li>
+      </ul>
+      <br>
+      <section class="container booked" *ngIf='selectedType == "booked"'>
+        <h3>Booked Tickets</h3>
+        <div class="text-center" *ngIf="tickets.booked.length==0">No Booked ticket founds</div>
+        <div class="row">
+
+          <article class="card fl-left" *ngFor="let ticket of tickets.booked">
+            <span class="badge badge-success" class="time-ago">{{ticket.created_at |timeAgo}}</span>
+            <section class="date">
+              <time datetime="">
+                <span>{{ticket.total_cost}} </span><span>₹</span>
+              </time>
+            </section>
+            <section class="card-cont">
+              <small>Travel</small>
+              <h3>{{ticket.train.train_name}}({{ticket.train.train_number}})</h3>
+              <div class="even-date">
+                <i class="fa fa-calendar"></i>
+                <time>
+                  <span> &nbsp;{{ticket.date}}</span>
+                  <span> {{ticket.train.from_time}} - {{ticket.train.to_time}}</span>
+                </time>
+              </div>
+              <div class="even-date">
+                <i class="fa fa-ticket"></i>
+                <span *ngFor="let seat of ticket.seats"> &nbsp; {{seat.seat_name}},</span>
+              </div>
+              <div class="even-info">
+                <i class="fa fa-map-marker"></i>
+                <p>
+                  {{ticket.train.start_point}} - {{ticket.train.end_point}}
+                </p>
+              </div>
+              <a (click)="cancelTicket(ticket)">Cancel</a>
+            </section>
+          </article>
+        </div>
+      </section>
+
+      <!-- Cancelled -->
+
+      <section class="container cancel" *ngIf='selectedType == "cancelled"'>
+        <h3>Cancelled Tickets</h3>
+        <div class="text-center" *ngIf="tickets.cancelled.length==0">No Cancelled ticket founds</div>
+        <div class="row">
+          <article class="card fl-left" *ngFor="let ticket of tickets.cancelled">
+            <span class="badge badge-success" class="time-ago">{{ticket.created_at |timeAgo}}</span>
+            <section class="date">
+              <time datetime="">
+                <span>{{ticket.total_cost}} </span><span>₹</span>
+              </time>
+            </section>
+            <section class="card-cont">
+              <small>Travel</small>
+              <h3>{{ticket.train.train_name}}({{ticket.train.train_number}})</h3>
+              <div class="even-date">
+                <i class="fa fa-calendar"></i>
+                <time>
+                  <span> &nbsp;{{ticket.date}}</span>
+                  <span> {{ticket.train.from_time}} - {{ticket.train.to_time}}</span>
+                </time>
+              </div>
+              <div class="even-date">
+                <i class="fa fa-ticket"></i>
+                <span *ngFor="let seat of ticket.seats"> &nbsp; {{seat.seat_name}},</span>
+              </div>
+              <div class="even-info">
+                <i class="fa fa-map-marker"></i>
+                <p>
+                  {{ticket.train.start_point}} - {{ticket.train.end_point}}
+                </p>
+              </div>
+              <a>Cancelled</a>
+            </section>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

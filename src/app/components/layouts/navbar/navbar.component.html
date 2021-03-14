@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navStyle" id="navBar">
+    <a class="brand-navbar" href="#">Train Ticket Reservation</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#mainMenu">
+        <span><i class="fas fa-align-right iconStyle"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav ml-auto navList">
+            <li class="nav-item"><a [routerLink]="['/home/train']" routerLinkActive="active" class="nav-link"><i
+                        class="fa fa-home"></i> Home<span class="sr-only">(current)</span></a></li>
+
+            <li class="nav-item">
+                <a [routerLink]="['/user/activities']" routerLinkActive="active" class="nav-link"><i
+                        class="fa fa-tasks"></i> Activities</a>
+            </li>
+            <li>
+                <a class="nav-item" [routerLink]="['/user/profile']" routerLinkActive="active" class="nav-link"><i
+                        class="fa fa-user"></i> Profile</a>
+            </li>
+            <li class="nav-item" (click)="logout()">
+                <a class="nav-link"><i class="fa fa-sign-out"></i> Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

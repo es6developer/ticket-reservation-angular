@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="main-train-seat">
+    <div class="train-detail row">
+      <div class="items col-xs-12 col-sm-8 col-md-8 col-lg-8 clearfix pd-2">
+        <div class="info-block block-info clearfix">
+          <div class="square-box pull-left">
+            <img src="https://i.pinimg.com/originals/d5/f5/05/d5f505d2b2f76929a84c35ef39a151f1.png" width="80%">
+          </div>
+          <p>{{trainDetail.train_name}}({{trainDetail.train_number}}) <span
+              class="pull-right btn btn-sm btn-success btn-daily">₹{{trainDetail.cost}}</span></p>
+          <p><strong>Source :</strong> {{trainDetail.start_point}} , <strong>Destination :</strong>
+            {{trainDetail.end_point}}</p>
+          <p>{{trainDetail.from_time}} - {{trainDetail.to_time}}, <strong>Total Seats</strong> :
+            {{trainDetail.total_seats}} seats</p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row " style="justify-content: center;">
+      <div class="col-xs-12 col-12 col-md-3 form-group">
+        <input type="text" placeholder="Datepicker" class="form-control" [(ngModel)]="selectedDate" [minDate]="today"
+          bsDatepicker [bsConfig]="{ isAnimated: true }">
+      </div>
+      <div class="col-xs-12 col-12 col-md-3 form-group">
+        <button type="button" class="btn primary-bg" (click)="getTrainDetails()"> Get Seat availability
+        </button>
+      </div>
+    </div>
+    <div class="cost">
+      <strong> Total Cost : ₹{{total_cost}}</strong>
+    </div>
+    <div *ngIf="isLoading" class="text-center"> Loading seats....</div>
+    <div *ngIf="!isLoading" >
+    <div class="row" >
+
+      <div class="col-md-2 col-sm-2 col-lg-2 margin-seat" *ngFor="let seat of seats">
+        <div class="seat-layout" (click)="selectSeat(seat)"
+          [ngClass]="{'selected-seat':seat.isSelected, 'disable-seat':seat.isBooked}"> {{seat.seat_name}}</div>
+      </div>
+    </div>
+    <br>
+    <div class="btn-booking row" style="justify-content: center;">
+      <button class="btn primary-bg" [disabled]="isSubmitted" (click)="bookTicket()"> Book Ticket</button>
+    </div>
+  </div>
+
+  </div>
